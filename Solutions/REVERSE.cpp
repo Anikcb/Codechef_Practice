@@ -194,25 +194,34 @@ int main()
     for(ll tt=1; tt<=tst; tt++)
     {
         //code
-        set< pll >s1,s2;
         ll m,a,b;
         cin>>n>>m;
         foR1(m)
         {
             cin>>a>>b;
-            if(a==b)continue;
-            if(!s1.count({a,b})){
-               if(s2.count({a,b}))s2.erase({a,b});
-                   adj[a].pb({b,0});
-                   s1.insert({a,b});
-                   if(!s1.count({b,a}))s2.insert({b,a});
-               }
+            adj[a].pb({b,0});
+            adj[b].pb({a,1});
         }
-        for(auto it: s2)adj[it.ff].pb({it.ss,1});
         vll d;
         BFS_0_1(1,d);
         if(d[n]==1e15)cout<<-1<<endl;
         else cout<<d[n]<<endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
